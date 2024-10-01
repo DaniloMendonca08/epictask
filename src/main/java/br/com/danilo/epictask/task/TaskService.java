@@ -1,5 +1,6 @@
 package br.com.danilo.epictask.task;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,5 +16,9 @@ public class TaskService {
 
     public List<Task> findAll() {
         return taskRepository.findAll();
+    }
+
+    public void create(@Valid Task task) {
+        taskRepository.save(task);
     }
 }
